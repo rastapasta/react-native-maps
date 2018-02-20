@@ -33,8 +33,12 @@ RCT_ENUM_CONVERTER(MKMapType, (@{
   @"hybrid": @(MKMapTypeHybrid),
   @"satelliteFlyover": @(MKMapTypeSatelliteFlyover),
   @"hybridFlyover": @(MKMapTypeHybridFlyover),
-  @"mutedStandard": @(MKMapTypeMutedStandard)
+  #ifdef MKMapTypeMutedStandard
+    // Keeping rect-native-maps compatible to Xcode 8
+    @"mutedStandard": @(MKMapTypeMutedStandard)
+  #endif
 }), MKMapTypeStandard, integerValue)
+
 
 // NOTE(lmr):
 // This is a bit of a hack, but I'm using this class to simply wrap
